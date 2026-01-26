@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Image from "next/image";
 import { HeroMesh } from "@/components/HeroMesh";
 import { Nav } from "@/components/Nav";
 import { Container } from "@/components/Container";
 import { Section } from "@/components/Section";
 import { siteConfig } from "@/data/site";
-import { Github, Linkedin, FileText, ExternalLink, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, FileText, ExternalLink, Mail, MapPin, Fish } from "lucide-react";
 
 export default function Home() {
   const [mouse, setMouse] = useState({ x: 0, y: 0, active: false });
@@ -64,8 +65,8 @@ export default function Home() {
                 className="px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-black/80 transition-colors shadow-lg shadow-black/5"
               >
                 View projects
-          </a>
-          <a
+              </a>
+              <a 
                 href="#contact" 
                 className="px-8 py-3 rounded-full border border-black/10 text-black/70 hover:bg-black/5 transition-all"
               >
@@ -78,8 +79,8 @@ export default function Home() {
                 <a
                   key={social.name}
                   href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-black/30 hover:text-black transition-colors flex items-center gap-2 text-sm font-medium"
                 >
                   {social.name === "GitHub" && <Github size={18} />}
@@ -89,58 +90,6 @@ export default function Home() {
                 </a>
               ))}
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Projects Section */}
-      <Section id="projects" className="bg-white/50">
-        <Container>
-          <h2 className="text-3xl font-bold mb-12 tracking-tight">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {siteConfig.projects.map((project: any) => (
-              <div 
-                key={project.title}
-                className="glass glass-hover p-8 rounded-2xl flex flex-col h-full"
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-black/90">{project.title}</h3>
-                  <div className="flex gap-3">
-                    {project.githubUrl && (
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-black/30 hover:text-black transition-colors">
-                        <Github size={20} />
-                      </a>
-                    )}
-                    {project.liveUrl && (
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-black/30 hover:text-black transition-colors">
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                  </div>
-                </div>
-                <p className="text-black/60 mb-6 leading-relaxed font-medium">
-                  {project.description}
-                </p>
-                <ul className="mb-6 space-y-2 flex-grow">
-                  {project.highlights?.map((highlight: string, i: number) => (
-                    <li key={i} className="text-sm text-black/50 leading-relaxed flex gap-2">
-                      <span className="mt-2 w-1 h-1 rounded-full bg-black/20 shrink-0" />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/5">
-                  {project.tags.map((tag: string) => (
-                    <span 
-                      key={tag}
-                      className="px-3 py-1 text-xs font-semibold rounded-full bg-black/[0.03] border border-black/[0.05] text-black/60"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
           </div>
         </Container>
       </Section>
@@ -207,8 +156,121 @@ export default function Home() {
         </Container>
       </Section>
 
+      {/* Projects Section */}
+      <Section id="projects">
+        <Container>
+          <h2 className="text-3xl font-bold mb-12 tracking-tight">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {siteConfig.projects.map((project: any) => (
+              <div 
+                key={project.title}
+                className="glass glass-hover p-8 rounded-2xl flex flex-col h-full"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-bold text-black/90">{project.title}</h3>
+                  <div className="flex gap-3">
+                    {project.githubUrl && (
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-black/30 hover:text-black transition-colors">
+                        <Github size={20} />
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-black/30 hover:text-black transition-colors">
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+                <p className="text-black/60 mb-6 leading-relaxed font-medium">
+                  {project.description}
+                </p>
+                <ul className="mb-6 space-y-2 flex-grow">
+                  {project.highlights?.map((highlight: string, i: number) => (
+                    <li key={i} className="text-sm text-black/50 leading-relaxed flex gap-2">
+                      <span className="mt-2 w-1 h-1 rounded-full bg-black/20 shrink-0" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-black/5">
+                  {project.tags.map((tag: string) => (
+                    <span 
+                      key={tag}
+                      className="px-3 py-1 text-xs font-semibold rounded-full bg-black/[0.03] border border-black/[0.05] text-black/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Hobbies Section */}
+      <Section id="hobbies">
+        <Container>
+          <h2 className="text-3xl font-bold mb-12 tracking-tight">Interests & Hobbies</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {(siteConfig as any).hobbies.map((hobby: any, hobbyIdx: number) => (
+              <div 
+                key={hobby.name}
+                className="bg-[#FDF8EC] p-10 rounded-sm shadow-xl shadow-stone-200/50 border border-stone-200/60 relative overflow-hidden flex flex-col h-full group transition-transform hover:-translate-y-1 duration-500"
+                style={{
+                  backgroundImage: `radial-gradient(#d1d5db 0.5px, transparent 0.5px)`,
+                  backgroundSize: '20px 20px',
+                  backgroundPosition: '0 0'
+                }}
+              >
+                {/* Decorative "tape" effect */}
+                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-24 h-8 bg-white/40 backdrop-blur-sm border-x border-stone-200/30 rotate-1 z-20" />
+                
+                <div className="flex items-center gap-5 mb-10 relative z-10">
+                  <div className="w-14 h-14 rounded-full bg-stone-200/50 flex items-center justify-center text-stone-600 shadow-inner text-2xl">
+                    {hobby.icon === "baseball" && "⚾"}
+                    {hobby.icon === "fish" && <Fish size={28} />}
+                  </div>
+                  <h3 className="text-3xl font-serif italic text-stone-800 tracking-tight">{hobby.name}</h3>
+                </div>
+
+                {hobby.images && (
+                  <div className="flex flex-col gap-2 mt-4 relative z-10">
+                    {hobby.images.map((img: any, i: number) => {
+                      const rotation = [
+                        "rotate-1", "-rotate-2", "rotate-[1.5deg]", 
+                        "-rotate-[1.2deg]", "rotate-2", "-rotate-[1.5deg]"
+                      ][(hobbyIdx * 3 + i) % 6];
+                      
+                      return (
+                        <div 
+                          key={i} 
+                          className={`bg-[#FBF6EE] p-3 pb-10 shadow-lg transition-transform hover:scale-105 hover:z-30 duration-300 border border-stone-200 ${rotation} ${i > 0 ? "-mt-8" : ""}`}
+                        >
+                          <div className="relative w-full h-64 sm:h-72 md:h-80 overflow-hidden">
+                            <Image
+                              src={img.src}
+                              alt={img.alt}
+                              fill
+                              className="object-contain grayscale-[20%] sepia-[10%] group-hover:grayscale-0 group-hover:sepia-0 transition-all duration-700"
+                            />
+                          </div>
+                          {img.alt && (
+                            <p className="mt-3 text-center font-serif italic text-stone-400 text-sm">{img.alt}</p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* Contact Section */}
-      <Section id="contact" className="pb-32">
+      <Section id="contact" className="pb-32 bg-white/50">
         <Container>
           <div className="glass p-12 md:p-16 rounded-3xl text-center shadow-xl shadow-black/[0.02]">
             <h2 className="text-4xl font-bold mb-6 tracking-tight">Let&apos;s build something.</h2>
@@ -239,13 +301,13 @@ export default function Home() {
                 ))}
               </div>
             </div>
-        </div>
+          </div>
         </Container>
       </Section>
 
       <footer className="py-12 border-t border-black/5 text-center text-black/20 text-sm font-medium">
         <p>&copy; {new Date().getFullYear()} {siteConfig.name}. Built with Next.js & Three.js</p>
       </footer>
-      </main>
+    </main>
   );
 }

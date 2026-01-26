@@ -37,6 +37,27 @@ export const siteConfig = {
   leadership: [
     "Founder & Mentor, Stevens Venture Capitalist Fund",
     "NCAA Division III Varsity Baseball Player, Leadership Council",
+    "Pledge Class President Alpha Kappa Psi",
+  ],
+  hobbies: [
+    { 
+      name: "Baseball", 
+      icon: "baseball",
+      images: [
+        { src: "/hobbies/baseball/IMG_9615.jpg", alt: "Tournaments" },
+        { src: "/hobbies/baseball/baseball_2.png", alt: "College Team" },
+        { src: "/hobbies/baseball/baseball_3.png", alt: "Player of the Game" },
+      ]
+    },
+    { 
+      name: "Fishing", 
+      icon: "fish",
+      images: [
+        { src: "/hobbies/fishing/IMG_9610.jpg", alt: "Freshwater Bass" },
+        { src: "/hobbies/fishing/IMG_9611.jpg", alt: "Sea Flounder" },
+        { src: "/hobbies/fishing/IMG_9614.jpg", alt: "More Bass!!!" },
+      ]
+    },
   ],
   socials: [
     { name: "GitHub", url: "https://github.com/Amresh-Bala29", icon: "github" },
@@ -69,6 +90,16 @@ export const siteConfig = {
     },
   ],
   experience: [
+    {
+      company: "The Wharton School",
+      role: "Symbal Growth Intern & Researcher",
+      dates: "Jan 2026 – Present",
+      bullets: [
+        "Applied machine learning using PyTorch, TensorFlow, and LangChain to optimize talent acquisition, forecast employee attrition risk, and build a data flywheel.",
+        "Designed and implemented a Python-based automation pipeline leveraging REST APIs and workflow orchestration tools to automate outreach to senior industry leaders.",
+        "Collaborated with industry partners including CHROs at Oracle, NYC government, Penn Medicine, and Liberty Mutual to inform strategic HR decision-making.",
+      ],
+    },
     {
       company: "NovaFlow (YC S25)",
       role: "Software Engineering Intern",
