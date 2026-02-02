@@ -20,14 +20,16 @@ export type Social = {
   icon: string;
 };
 
+const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
 export const siteConfig = {
   name: "Amresh Balakrishnan",
   title: "Software Engineer | AI/ML | Systems & Data",
   location: "Hoboken, NJ",
   email: "amreshbalakrishnan@gmail.com",
   tagline: "Building reliable systems and intelligent products.",
-  heroSubheadline: "I’m a computer engineering student and software engineer focused on data-driven systems, AI tooling, and clean, scalable infrastructure.",
-  about: "I’m a Computer Engineering student at Stevens Institute of Technology with experience building data pipelines, cloud-based systems, and AI-driven applications. I enjoy working close to data, performance constraints, and real-world use cases, and I’m especially interested in applied ML, systems engineering, and infrastructure.",
+  heroSubheadline: "I'm a computer engineering student and software engineer focused on data-driven systems, AI tooling, and clean, scalable infrastructure.",
+  about: "I'm a Computer Engineering student at Stevens Institute of Technology with experience building data pipelines, cloud-based systems, and AI-driven applications. I enjoy working close to data, performance constraints, and real-world use cases, and I'm especially interested in applied ML, systems engineering, and infrastructure.",
   interests: [
     "Distributed systems",
     "Data infrastructure",
@@ -44,25 +46,25 @@ export const siteConfig = {
       name: "Baseball", 
       icon: "baseball",
       images: [
-        { src: "/hobbies/baseball/IMG_9615.jpg", alt: "Tournaments" },
-        { src: "/hobbies/baseball/baseball_2.png", alt: "College Team" },
-        { src: "/hobbies/baseball/baseball_3.png", alt: "Player of the Game" },
+        { src: `${basePath}/hobbies/baseball/IMG_9615.jpg`, alt: "Tournaments" },
+        { src: `${basePath}/hobbies/baseball/baseball_2.png`, alt: "College Team" },
+        { src: `${basePath}/hobbies/baseball/baseball_3.png`, alt: "Player of the Game" },
       ]
     },
     { 
       name: "Fishing", 
       icon: "fish",
       images: [
-        { src: "/hobbies/fishing/IMG_9610.jpg", alt: "Freshwater Bass" },
-        { src: "/hobbies/fishing/IMG_9611.jpg", alt: "Sea Flounder" },
-        { src: "/hobbies/fishing/IMG_9614.jpg", alt: "More Bass!!!" },
+        { src: `${basePath}/hobbies/fishing/IMG_9610.jpg`, alt: "Freshwater Bass" },
+        { src: `${basePath}/hobbies/fishing/IMG_9611.jpg`, alt: "Sea Flounder" },
+        { src: `${basePath}/hobbies/fishing/IMG_9614.jpg`, alt: "More Bass!!!" },
       ]
     },
   ],
   socials: [
     { name: "GitHub", url: "https://github.com/Amresh-Bala29", icon: "github" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/amreshbalakrishnan/", icon: "linkedin" },
-    { name: "Resume", url: "/resume.pdf", icon: "file-text" },
+    { name: "Resume", url: `${basePath}/resume.pdf`, icon: "file-text" },
   ],
   projects: [
     {
